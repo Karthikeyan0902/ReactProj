@@ -1,14 +1,17 @@
-import SideBar from '../Components/SideBar';
+import './Home.css';
 import Card from '../Components/Card';
+import Sidebar from '../Components/SideBar';
 
 function Home() {
   return (
-    <div>
-        <SideBar/>
-        <div style={{textAlign : 'center'}}>
-        <Card title="Welcome" content="This is the home page." />
-      {/* <h1 style={{textAlign: ' center'}}>Welcome to the Home Page</h1> */}
-        </div>
+    <div className="home-container">
+      <Card 
+        header="Welcome to the Home Page"
+        content="This is the home page content."
+        footer="© 2025 My Website"
+      />
+
+      <Sidebar/>
     </div>
   );
 }

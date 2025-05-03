@@ -1,8 +1,37 @@
+/* Card.css */
+
+/* The Card container */
 .card {
-    border: 1px solid #000000;
-    padding: 16px;
-    border-radius: 8px;
-    margin: 16px;
-    background-color: #fff;
-  }
-  
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  border: 1px solid #000000;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px;
+  background-color: #fff;
+  width: 400px; /* Adjust width as per your preference */
+  height: 300px; /* Adjust height or remove if flexible */
+}
+
+/* Header style for the card */
+.card-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Footer style for the card */
+.card-footer {
+  margin-top: auto; /* Pushes footer to the bottom */
+  border-top: 1px solid #000000;
+  padding-top: 8px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Content style for the card */
+.card-content {
+  flex-grow: 1; /* Allows content to take remaining space */
+  text-align: center;
+}

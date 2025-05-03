@@ -21,6 +21,8 @@ function Sidebar() {
         <li><Link to="/TodoList">TodoList</Link></li>
         <li><Link to="/Search">SearchFilter</Link></li>
         <li><Link to="/Stopwatch">StopWatch</Link></li>
+        <li><Link to="/theme">Theme</Link></li>
+        <li><Link to="/Focus">Focus</Link></li>
         <li><Link to="/Login">Logout</Link></li>
       </ul>
     </div>

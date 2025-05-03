@@ -9,12 +9,16 @@ import Home from './Views/Home';
 import Layout from './Components/Layout';
 import SearchFilter from './Views/SearchFilter';
 import Stopwatch from './Views/Stopwatch';
+import ThemePage from './Views/ThemePage';
+import FocusInput from './Views/FocusInput';
+import FindingBar from './Components/FindingBar'
 
 function App() {
 
   return (
     <>
       <Router>
+        <FindingBar/>
       <Routes>
         <Route path='/Lay' element={<Layout />} />
         <Route path='/Counter' element={<Counter />} />
@@ -25,6 +29,8 @@ function App() {
         <Route path='/Home' element={<Home />} />
         <Route path='/Search' element={<SearchFilter />} />
         <Route path='/Stopwatch' element={<Stopwatch />} />
+        <Route path='/theme' element={<ThemePage />} />
+        <Route path='/Focus' element={<FocusInput  />} />
       </Routes>
     </Router>
     </>
