@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import Sidebar from '../Components/SideBar';
+import FindingBar from '../Components/FindingBar'
 function FocusInput() {
   const inputRef = useRef(null);
 
@@ -9,6 +10,7 @@ function FocusInput() {
 
   return (
     <div style={{ padding: '20px' }}>
+      <FindingBar/>
       <h2>useRef Hook Example</h2>
       <input
         ref={inputRef}
@@ -20,6 +22,7 @@ function FocusInput() {
       <button onClick={handleFocus} style={{ padding: '10px 20px', fontSize: '16px' }}>
         Focus Input
       </button>
+      
       <Sidebar/>
     </div>
   );

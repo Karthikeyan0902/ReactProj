@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from './Button'; // ← import reusable Button
 import './sidebar.css';
 
-function Sidebar() {
+function Sidebar({ username }) {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleSidebar = () => {
@@ -12,9 +11,7 @@ function Sidebar() {
 
   return (
     <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
-      <Button onClick={toggleSidebar} className="toggle-btn">
-        Expand/Short
-      </Button>
+      <p>Welcome, {username || 'Guest'}!</p>
       <ul>
         <li><Link to="/Home">Home</Link></li>
         <li><Link to="/Counter">Counter</Link></li>
@@ -23,6 +20,8 @@ function Sidebar() {
         <li><Link to="/Stopwatch">StopWatch</Link></li>
         <li><Link to="/theme">Theme</Link></li>
         <li><Link to="/Focus">Focus</Link></li>
+        <li><Link to="/List">List</Link></li>
+        <li><Link to="/profile">Profile</Link></li>
         <li><Link to="/Login">Logout</Link></li>
       </ul>
     </div>

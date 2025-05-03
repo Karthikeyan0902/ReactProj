@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SideBar from '../Components/SideBar';
+import FindingBar from '../Components/FindingBar'
 
 function TodoList() {
   const [tasks, setTasks] = useState([]);
@@ -43,7 +44,10 @@ function TodoList() {
   };
 
   return (
+    <div>
+      <FindingBar/>
     <div class="body">
+      
         <SideBar/>
         <div class="content scroll">
       <h1>To-Do List</h1>
@@ -87,6 +91,7 @@ function TodoList() {
         ))}
       </ul>
       {tasks.length === 0 && <p>No tasks yet.</p>}
+    </div>
     </div>
     </div>
   );

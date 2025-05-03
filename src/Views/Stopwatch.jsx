@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SideBar from '../Components/SideBar';
+import FindingBar from '../Components/FindingBar'
 
 const Stopwatch = () => {
   const [seconds, setSeconds] = useState(0);
@@ -30,6 +31,7 @@ const Stopwatch = () => {
 
   return (
     <div style={{ textAlign: 'center', fontFamily: 'Arial' }}>
+      <FindingBar/>
       <h1>Stopwatch</h1>
       <h2>{seconds}s</h2>
       <button onClick={toggle}>
@@ -38,7 +40,7 @@ const Stopwatch = () => {
       <button onClick={reset} style={{ marginLeft: '10px' }}>
         Reset
       </button>
-
+      
       <SideBar/>
     </div>
   );

@@ -1,46 +1,63 @@
 import React, { useState } from "react";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, InputAdornment, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import "./Counter";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import useToggle from "../Hooks/useToggle";
 
-function Login() {
-  const [username, setUsername] = useState('');
+function Login({ setLoggedInUser }) {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Hook to navigate to other pages
+  const [showPassword, toggleShowPassword] = useToggle(false);
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (!username || !password) {
+    if (!email || !password) {
       setError("Please fill in both fields.");
       return;
     }
 
-    // After successful login, navigate to home
+    // For demo → assume username is 'TestUser'
+    const username = 'TestUser';
+
+    setLoggedInUser({ username, email });
     setError('');
     alert("Login successful!");
-    navigate("/Home"); // Redirect to home page
+    navigate("/Home");
   };
 
   return (
     <div>
       <div className="content">
         <TextField 
-          label="UserName" 
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          label="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           variant="outlined"
         /><br /><br />
+
         <TextField 
-          label="Password" 
-          type="password"
+          label="Password"
+          type={showPassword ? 'text' : 'password'}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           variant="outlined"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton onClick={toggleShowPassword} edge="end">
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            )
+          }}
         /><br /><br />
+
         {error && <p style={{ color: "red" }}>{error}</p>}
-        
+
         <Button variant="contained" onClick={handleLogin}>Login</Button>{' '}
-        <Button variant="outlined" onClick={() => { setUsername(''); setPassword(''); }}>Cancel</Button>
+        <Button variant="outlined" onClick={() => { setEmail(''); setPassword(''); }}>Cancel</Button>
       </div>
     </div>
   );

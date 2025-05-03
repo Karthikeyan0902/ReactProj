@@ -1,0 +1,40 @@
+.card {
+    max-width: 300px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .card-header {
+    background-color: #3b82f6; /* Tailwind's blue-500 */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .card-content h2 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-content p {
+    color: #4b5563; /* Tailwind's gray-700 */
+  }
+  
+  .card-footer {
+    background-color: #f3f4f6; /* Tailwind's gray-100 */
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    color: #6b7280; /* Tailwind's gray-600 */
+  }
+  

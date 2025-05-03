@@ -5,13 +5,14 @@ import "./Counter";
 
 function Signup() {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState(''); // New state for email
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate(); // Hook to navigate to other pages
 
   const handleSubmit = () => {
-    if (!username || !password) {
-      setError("Please fill in both fields.");
+    if (!username || !email || !password) {
+      setError("Please fill in all fields.");
       return;
     }
 
@@ -30,6 +31,15 @@ function Signup() {
           onChange={(e) => setUsername(e.target.value)}
           variant="outlined"
         /><br /><br />
+
+        <TextField 
+          label="Email"  // Email field added
+          type="email"  // Use email type for validation
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          variant="outlined"
+        /><br /><br />
+
         <TextField 
           label="Password" 
           type="password"
@@ -37,9 +47,11 @@ function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           variant="outlined"
         /><br /><br />
+        
         {error && <p style={{ color: "red" }}>{error}</p>}
+
         <Button variant="contained" onClick={handleSubmit}>SignUp</Button>{' '}
-        <Button variant="outlined" onClick={() => { setUsername(''); setPassword(''); }}>Cancel</Button>
+        <Button variant="outlined" onClick={() => { setUsername(''); setEmail(''); setPassword(''); }}>Cancel</Button>
       </div>
     </div>
   );

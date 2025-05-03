@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SideBar from '../Components/SideBar';
+import FindingBar from '../Components/FindingBar'
 
 function SearchFilter() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,7 +23,10 @@ function SearchFilter() {
   );
 
   return (
+    <div>
+      <FindingBar/>
     <div className='body'>
+      
         <div className='content scroll'>
       <h2>Search Filter Example</h2>
       <input
@@ -47,7 +51,9 @@ function SearchFilter() {
         )}
       </ul>
       </div>
+      
       <SideBar/>
+    </div>
     </div>
   );
 }
