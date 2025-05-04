@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Counter from './Views/Counter';
@@ -14,9 +14,12 @@ import ThemePage from './Views/ThemePage';
 import FocusInput from './Views/FocusInput';
 import UserList from './Views/UserList';
 import ProfilePage from './Views/Profilepage';
+import ProductList from './Views/ProductList';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const ProfilePage = lazy(() => import('./Views/Profilepage'));
+  const ProductList = lazy(() => import('./Views/ProductList'));
 
   return (
     <>
@@ -34,7 +37,23 @@ function App() {
         <Route path='/theme' element={<ThemePage />} />
         <Route path='/Focus' element={<FocusInput />} />
         <Route path='/List' element={<UserList />} />
-        <Route path='/profile' element={<ProfilePage />} />
+        <Route
+          path="/profile"
+          element={
+            <Suspense fallback={<div>Loading Profile Page...</div>}>
+              <ProfilePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/Product"
+          element={
+            <Suspense fallback={<div>Loading Product List...</div>}>
+              <ProductList />
+            </Suspense>
+          }
+        />
+
       </Routes>
     </Router>
     </>

@@ -23,7 +23,7 @@ const ProfilePage = () => {
         footer="Contact: john@example.com"
       /> <br />
       <ProfileCard
-        header="John Doe"
+        header="Karthi"
         title="Frontend Developer"
         content="Loves building with React and Tailwind."
         footer="Contact: john@example.com"
